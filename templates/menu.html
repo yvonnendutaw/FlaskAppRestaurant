@@ -1,17 +1,20 @@
 
 <html>
 <head>
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 	</head>
 
 
 	<body>
-	<div class = 'pane'>
-		<div class = 'header'>
-		<h1>{{ restaurant.name }}</h1>
-	</div>
+       <div class="container">
+         <!-- Page Content goes here -->
 
-	<a href = '{{url_for('newMenuItem', restaurant_id = restaurant.id) }}'>Create New Item</a>
+
+
+	<a href = '{{url_for('newRestaurant') }}'>Create New Item</a>
 
 
 <div class = 'flash'>
@@ -28,47 +31,47 @@
 
 </div>
 
+<div class="row">
+	<h1>{{ restaurant.name }}</h1>
+
 
 		{% for i in items %}
-    <div class = 'nameAndPrice'>
-		<span class = 'name'><p>{{i.name}}</p></span>
+		  <div class="col s4">
+		    <div class="card horizontal" width="100%" height="300px">
 
-		<span class = 'price'>
+		      <div class="card-stacked">
+		        <div class="card-content">
+							<div class = 'nameAndPrice'>
+							<span class = 'name'><p>{{i.name}}</p></span>
 
-
-		<p>{{i.price}} </p>
-	</span>
-	</div>
-
-
-
-	<div class = 'desription'>
-		<p>{{i.desription}}</p>
-	</div>
+							<span class = 'price'>
 
 
-
-	<div class = "editdeletepane">
-
-	<a href='{{url_for('editMenuItem',restaurant_id = restaurant.id, menu_id=i.id)}}' >Edit</a>
-	<a href='{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id=i.id)}}' >
-	Delete</a>
-	</div>
+							<p>{{i.price}} </p>
+						</span>
+						</div>
 
 
 
+						<div class = 'desription'>
+							<p>{{i.desription}}</p>
+						</div>
 
-		{% endfor %}
+		        </div>
+		        <div class="card-action">
+							<a class=" left waves-effect waves-light btn-small" href='{{url_for('editMenuItem',restaurant_id = restaurant.id, menu_id=i.id)}}' >Edit</a>
+						<a class="right waves-effect waves-light btn-small" href='{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id=i.id)}}' >
+						Delete</a>
+							        </div>
+		      </div>
+		    </div>
+		  </div>
 
 
-
-
-
+			{% endfor %}
 </div>
-</div>
+		</div>
 	</body>
-
-
 
 
 </html>

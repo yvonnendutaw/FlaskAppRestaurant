@@ -1,74 +1,72 @@
 
-body {
-    font-family: sans-serif;
-    background-color: #333333
+body            {
+  font-family: sans-serif;
+  background-color: white;
+}
+  h1, h2, h3, h4 {
+     color: white;
+    }
+h1, h2          {
+  font-family: 'Georgia', serif;
+   margin: 0;
+  }
+h1              {
+  border-bottom: 2px solid #eee;
+ }
+h2              { font-size: 1.2em; }
+
+p               { color: #CCCCCC;}
+
+a {text-decoration: none; color:#FFFFCC; font-size: .75em;}
+
+.pane {position:absolute; left: 25%; border: 2px solid;
+    border-radius: 25px; padding: 5px; margin: 5px; border-color: #999999; background-color: #333333; }
+.header         {left:50%; text-align: center;}
+.name {width:50%;display: inline-block; float: left;}
+.description {}
+.price {text-align: right; width:50%; float: right; }
+.editdeletepane{}
+
+.flash          { background: #cee5F5; }
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
 
-h1,
-h2,
-h3,
-h4 {
-    color: #ffffff;
+.card.horizontal {
+    background-color: #170c0c57;
+    /* color: black; */
 }
-
-h1,
-h2 {
-    font-family: 'georgia', serif;
+.card .card-content p {
     margin: 0;
-}
-
-h1 {
-    border-bottom: 2px solid #eee;
-}
-
-h2 {
-    font-size: 1.2em;
-}
-
-p,
-dd,
-dt {
-    color: #cccccc;
-}
-
-a {
-    text-decoration: none;
-    color: #ffffcc;
-    font-size: .75em;
-}
-
-.pane {
-    position: absolute;
-    left: 25%;
-    border: 2px solid;
-    border-radius: 25px;
-    padding: 5px;
-    margin: 5px;
-    border-color: #999999;
-    background-color: #333333
-}
-
-.header {
-    left: 50%;
+    color: white;
     text-align: center;
+    font-style: inherit;
+    font-weight: 900;
+    font-family: cursive;
+}
+a.waves-effect.waves-light.btn-small {
+    width: 100px;
+    background-color: #ba68c8;
+}
+i.large {
+    font-size: 6rem;
+    color: #ffee58;
+}
+/* Add rounded corners to the top left and the top right corner of the image */
+img {
+  border-radius: 5px 5px 0 0;
 }
 
-.name {
-    width: 50%;
-    display: inline-block;
-    float: left;
+/* edit restaurant page */
+input.editRestaurant.left.waves-effect.waves-light.btn-small {
+    width: 100px;
+    background-color: #ba68c8;
 }
-
-.desription {}
-
-.price {
-    text-align: right;
-    width: 50%;
-    float: right;
+.editRestaurant-body{
+  margin-top: 20%;
 }
-
-.editdeletepane {}
-
-.flash {
-    background: #cee5f5;
+.editRestaurant-name{
+  padding: 17%;
 }
