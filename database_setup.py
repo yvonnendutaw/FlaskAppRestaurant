@@ -19,7 +19,7 @@ class Restaurant(Base):
 
         return {
             'name': self.name,
-    
+
         }
 
 
