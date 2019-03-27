@@ -70,3 +70,7 @@ input.editRestaurant.left.waves-effect.waves-light.btn-small {
 .editRestaurant-name{
   padding: 17%;
 }
+
+h1 {
+    color: black;
+}
