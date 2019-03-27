@@ -69,8 +69,6 @@ def deleteRestaurant(restaurant_id):
             'deleterestaurant.html', restaurant_id=restaurant_id, item=deletedItem)
 
 
-
-
 @app.route('/restaurants/<int:restaurant_id>/menu')
 def restaurantMenu(restaurant_id):
     restaurant = session.query(Restaurant).filter_by(id=restaurant_id).one()
@@ -95,16 +93,39 @@ def newMenuItem(restaurant_id):
 
 
 
+@app.route('/restaurants/<int:restaurant_id>/menu/<int:menu_id>/JSON')
+def menuItemJSON(restaurant_id, menu_id):
+    menuItem = session.query(MenuItem).filter_by(id=menu_id).one()
+    return jsonify(MenuItem=menuItem.serialize)
+
+
+@app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/edit',
+           methods=['GET', 'POST'])
+def editMenuItem(restaurant_id, menu_id):
+    editedItem = session.query(MenuItem).filter_by(id=menu_id).one()
+    if request.method == 'POST':
+        if request.form['name']:
+            editedItem.name = request.form['name']
+        session.add(editedItem)
+        session.commit()
+        flash("menu item has been edited!")
+
+        return redirect(url_for('restaurantMenu', restaurant_id=restaurant_id))
+    else:
+        # USE THE RENDER_TEMPLATE FUNCTION BELOW TO SEE THE VARIABLES YOU
+        # SHOULD USE IN YOUR EDITMENUITEM TEMPLATE
+        return render_template(
+            'editmenuitem.html', restaurant_id=restaurant_id, menu_id=menu_id, item=editedItem)
+
+
 @app.route('/restaurant/<int:restaurant_id>/<int:menu_id>/delete/',
            methods=['GET', 'POST'])
 def deleteMenuItem(restaurant_id, menu_id):
     deletedItem = session.query(MenuItem).filter_by(id=menu_id).one()
     if request.method == 'POST':
-        if request.form['name']:
-            deletedItem.name = request.form['name']
         session.delete(deletedItem)
         session.commit()
-        flash("Menu iItem has been deleted!")
+        flash("Menu Item has been deleted!")
 
         return redirect(url_for('restaurantMenu', restaurant_id=restaurant_id))
     else:
@@ -112,10 +133,6 @@ def deleteMenuItem(restaurant_id, menu_id):
         # SHOULD USE IN YOUR EDITMENUITEM TEMPLATE
         return render_template(
             'deletedItem.html', restaurant_id=restaurant_id, menu_id=menu_id, item=deletedItem)
-
-
-
-
 
 
 if __name__ == '__main__':
