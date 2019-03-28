@@ -47,8 +47,12 @@ a {text-decoration: none; color:#FFFFCC; font-size: .75em;}
     font-family: cursive;
 }
 a.waves-effect.waves-light.btn-small {
-    width: 100px;
+    width: 60px;
     background-color: #ba68c8;
+    margin-bottom: 20;
+    font-size: xx-small;
+    height: 30px;
+    text-align: center;
 }
 i.large {
     font-size: 6rem;
@@ -73,4 +77,8 @@ input.editRestaurant.left.waves-effect.waves-light.btn-small {
 
 h1 {
     color: black;
+}
+
+a.view-menu.right.waves-effect.waves-light.btn-small {
+    width: 100%;
 }
