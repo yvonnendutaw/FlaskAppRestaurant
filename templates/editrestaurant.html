@@ -1,45 +1,50 @@
 <html>
-<head>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">	</head>
-<body>
-	<div class="container">
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<div class="row editRestaurant-body">
-		<div class="col s6 offset-s3">
-			<div class="card horizontal" width="100%" height="300px">
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+	</head>
 
-				<div class="card-stacked">
-					<div class="card-content">
+	<body>
+		<div class="container">
 
-						<form action= "{{url_for('editRestaurant', restaurant_id=item.id)}}" method = 'POST'>
-<div class="row">
-	<div class="col s3">
-		<p class="editRestaurant-name">Name:</p>
+			<div class="row editRestaurant-body">
+				<div class="col s6 offset-s3">
+					<div class="card horizontal" width="100%" height="300px">
 
-	</div>
-	<div class="col s9">
-		<input type = 'text' size='30' name = 'name' placeholder = '{{item.name}}'>
+						<div class="card-stacked">
+							<div class="card-content">
 
-	</div>
-
-</div>
-
-					 </form>
-					</div>
-					<div class="card-action">
-						<input class=" editRestaurant left waves-effect waves-light btn-small" type='submit' value='Edit'></input>
-
-							<a class="right waves-effect waves-light btn-small" href= '{{url_for('showRestaurant')}}'>Cancel</a>
+								<form action="{{url_for('editRestaurant', restaurant_id=item.id)}}" method='POST'>
+									<div class="row">
+										<div class="col s3">
+											<p class="editRestaurant-name">Name:</p>
 
 										</div>
+										<div class="col s9">
+											<input type='text' size='30' name='name' placeholder='{{item.name}}'>
+
+										</div>
+
+									</div>
+
+							</div>
+							<div class="card-action">
+								<input class=" editRestaurant left waves-effect waves-light btn-small" type="submit" value='Edit'></input>
+
+								<a class="right waves-effect waves-light btn-small" href='{{url_for('showRestaurant')}}'>Cancel</a>
+
+							</div>
+						</div>
+					</div>
+					</form>
+
 				</div>
 			</div>
-		</div>
-	</div>
 
-</div>
-</body>
+		</div>
+	</body>
+
 </html>

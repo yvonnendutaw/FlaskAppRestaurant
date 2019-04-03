@@ -1,20 +1,38 @@
 <html>
-<head>
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 	</head>
-<body>
-<h1> Are you sure you want to delete {{item.name}}? </h1>
 
-<form action="{{url_for('deleteRestaurant', restaurant_id=restaurant_id)}}" method = 'post'>
+	<body>
+		<div class="container">
 
-<input type='submit', value = 'Delete'>
-
-
-
-
-</form>
-
-<a href= '{{url_for('showRestaurant')}}'>Cancel</a>
-</body>
+			<div class="row editRestaurant-body">
+				<div class="col s6 offset-s3">
+					<div class="card horizontal" width="100%" height="300px">
+						<div class="card-stacked">
+							<div class="card-content">
+								<form action="{{url_for('deleteRestaurant', restaurant_id=restaurant_id)}}" method='post'>
+									<div class="row">
+										<div class="col s12">
+											<p> Are you sure you want to delete {{item.name}}? </p>
+										</div>
+									</div>
+							</div>
+							<div class="card-action">
+								<input class=" editRestaurant left waves-effect waves-light btn-small" type='submit' , value='Delete'>
+								<a></a>
+								<a class="right waves-effect waves-light btn-small" href='{{url_for('showRestaurant')}}'>Cancel</a>
+							</div>
+						</div>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
 
 </html>
