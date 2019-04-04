@@ -14,7 +14,7 @@ h1, h2 {
   margin: 0;
 }
 
-h1 {
+h5 {
   border-bottom: 2px solid #eee;
 }
 
@@ -147,4 +147,8 @@ a.view-menu.right.waves-effect.waves-light.btn-small {
 
 input[type="text"] {
   color: white;
+}
+
+.row.headingrow {
+  margin-bottom: -13px;
 }

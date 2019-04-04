@@ -12,11 +12,6 @@
 		<div class="container">
 			<!-- Page Content goes here -->
 
-
-
-			<a href='{{url_for('newMenuItem', restaurant_id=restaurant_id) }}'>Create New Item</a>
-
-
 			<div class='flash'>
 				{% with messages = get_flashed_messages() %}
 				{% if messages %}
@@ -32,8 +27,16 @@
 			</div>
 
 			<div class="row">
-				<h1 style="text-align:center;">{{ restaurant.name }}</h1>
 
+				<div class="row headingrow">
+					<div class="col s9">
+						<h3 style="color: black; text-align:left;">{{ restaurant.name }}</h3>
+					</div>
+					<div class="col s3">
+						<a class="newMenuItem right waves-effect waves-light btn-small" style="color:white; margin-top:50px; " href='{{url_for('newMenuItem', restaurant_id=restaurant_id) }}'>New Menu Item</a>
+					</div>
+
+				</div>
 				{% for i in items %}
 				<div class="col s6">
 					<div class="card horizontal" width="100%" style="height:300px;">
